@@ -1,11 +1,16 @@
 pub mod point;
-// use point::*;
 
 pub mod read_in {
     use std::fs;
 
     pub fn from(file_path: &str) -> String {
         fs::read_to_string(file_path).expect("Could not read file at path:")
+    }
+    pub fn split_parse(file_path: &str, delimiter: &str) -> Vec<i32> {
+        from(file_path).split(&delimiter).map(|val| match val.parse::<i32>() {
+            Ok(val) => val,
+            Err(error) => panic!("Could not parse number from file at path:{}, with error: {}", file_path, error),
+        }).collect()
     }
 
     pub fn lines(file_path: &str) -> Vec<String> {
