@@ -98,6 +98,7 @@ fn update_cargo(mut days: Vec<i32>, num: i32) {
 
 static INIT_CODE: &str =
     "use Advent_Of_Code_2021::read_in;
+use colored::Colorize;
 const TEST_MODE: bool = false;
 
 fn main() {
