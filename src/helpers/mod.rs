@@ -1,6 +1,5 @@
-pub fn test() {
-    println!("test");
-}
+pub mod point;
+// use point::*;
 
 pub mod read_in {
     use std::fs;
