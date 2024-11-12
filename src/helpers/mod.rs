@@ -29,3 +29,32 @@ pub mod read_in {
         parsed
     }
 }
+
+pub mod print {
+    pub fn debug_grid_2d<T: std::fmt::Debug>(field: Vec<Vec<T>>) {
+        for y in 0..field.len() {
+            for x in 0..field[y].len() {
+                print!("{:?}", field[y][x]);
+            }
+            println!();
+        }
+    }
+
+    pub fn grid_2d<T: std::fmt::Display>(field: Vec<Vec<T>>) {
+        for y in 0..field.len() {
+            for x in 0..field[y].len() {
+                print!("{}", field[y][x]);
+            }
+            println!();
+        }
+    }
+
+    pub fn grid<T: std::fmt::Display>(field: &Vec<T>, size: (usize, usize)) {
+        for y in 0..size.0 {
+            for x in 0..size.1 {
+                print!("{}", field[x + y * size.1]);
+            }
+            println!()
+        }
+    }
+}
