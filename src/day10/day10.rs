@@ -52,7 +52,6 @@ impl Bracket {
     fn is_opening(char: char) -> bool {
         "([{<".contains(char)
     }
-
 }
 
 fn main() {
@@ -86,14 +85,14 @@ fn part1(lines: &Vec<String>) {
 
     let score = illegal_chars.iter().fold(0, |score, bracket| score + bracket.score());
 
-    println!("{}","Part 1".green());
+    println!("{}", "Part 1".green());
     println!("- {}", score.to_string().yellow());
 
     part2(remaining_stacks);
 }
 
 fn part2(remaining_stacks: Vec<Vec<Bracket>>) {
-    println!("{}","Part 2".green());
+    println!("{}", "Part 2".green());
 
     let mut scores = remaining_stacks.iter().map(|stack| calc_score(stack)).collect::<Vec<u64>>();
     scores.sort_unstable();
