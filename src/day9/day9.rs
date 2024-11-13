@@ -144,7 +144,7 @@ fn part2(field: Vec<Coord>, lowest_points: Vec<&Coord>, size: (usize, usize)) {
     let answer = largest.iter().fold(1, |acc, x| acc * x);
     println!("{:?}", largest);
     println!("{}", "Part 2".green());
-    print::grid(&field, size);
+    print::grid(&field, &size);
     println!("- {}", answer.to_string().yellow());
 }
 

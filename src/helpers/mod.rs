@@ -28,9 +28,32 @@ pub mod read_in {
         }
         parsed
     }
+
+    /**
+     * Parses the input to a 1D grid, the sizes of the grid are returned as well.
+     * The grid values are parsed to usize.<br>
+     * @<b>returns</b> (grid, size)
+     * - <b>size</b>: (usize, usize) with (y, x)
+     * - <b>grid</b>: Vec\<usize\> with grid\[x + y * size.0]
+     */
+    pub fn parse_grid(file_path: &str) -> (Vec<usize>, (usize, usize)) {
+        let lines = lines(file_path);
+        let size = (lines.len(), lines[0].len());
+        let mut grid = Vec::with_capacity(size.0 * size.1);
+
+        for line in lines {
+            for char in line.chars() {
+                grid.push(char.to_digit(10).unwrap() as usize);
+            }
+        }
+
+        (grid.clone(), size)
+    }
 }
 
 pub mod print {
+    use colored::{ColoredString, Colorize};
+
     pub fn debug_grid_2d<T: std::fmt::Debug>(field: Vec<Vec<T>>) {
         for y in 0..field.len() {
             for x in 0..field[y].len() {
@@ -49,10 +72,20 @@ pub mod print {
         }
     }
 
-    pub fn grid<T: std::fmt::Display>(field: &Vec<T>, size: (usize, usize)) {
+    pub fn grid<T: std::fmt::Display>(field: &Vec<T>, size: &(usize, usize)) {
         for y in 0..size.0 {
             for x in 0..size.1 {
                 print!("{}", field[x + y * size.1]);
+            }
+            println!()
+        }
+    }
+
+    pub fn grid_special<T: std::fmt::Display>(field: &Vec<T>, size: &(usize, usize), glow_if: fn(&T) -> bool) {
+        for y in 0..size.0 {
+            for x in 0..size.1 {
+                let print_val = if glow_if(&field[x + y * size.1]) {field[x + y * size.1].to_string().bright_white()} else { field[x + y * size.1].to_string().white() };
+                print!("{}", print_val);
             }
             println!()
         }

@@ -13,7 +13,9 @@ fn main() {
     let days: Vec<i32> = folders.iter().map(|name| { name.replace("./src\\day", "").parse::<i32>().unwrap() }).collect::<Vec<i32>>();
 
     println!("Existing Days:");
-    for day in days.clone() {
+    let mut sorted_days = days.clone();
+    sorted_days.sort();
+    for day in sorted_days {
         println!("- Day: {}", day)
     }
     let latest_day = days.iter().max().unwrap();
@@ -59,7 +61,7 @@ fn create_day_files(num: i32) {
     let path_str = format!("{folder_path}/input.txt");
     let path = Path::new(&path_str);
     match File::create(path) {
-        Ok(_) => {  },
+        Ok(_) => {}
         Err(err) => panic!("Failed to create {display}, error {err}"),
     };
     println!("{} Created {}", "✓".green(), path.display());
@@ -67,7 +69,7 @@ fn create_day_files(num: i32) {
     let path_str = format!("{folder_path}/testInput.txt");
     let path = Path::new(&path_str);
     match File::create(path) {
-        Ok(_) => {  },
+        Ok(_) => {}
         Err(err) => panic!("Failed to create {display}, error {err}"),
     };
     println!("{} Created {}", "✓".green(), path.display());
@@ -99,7 +101,7 @@ fn update_cargo(mut days: Vec<i32>, num: i32) {
 static INIT_CODE: &str =
     "use Advent_Of_Code_2021::read_in;
 use colored::Colorize;
-const TEST_MODE: bool = false;
+const TEST_MODE: bool = true;
 
 fn main() {
     println!(\"\\n{}\", \"AOC Day DAY_NUMBER\".bright_green().bold());
