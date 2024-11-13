@@ -52,7 +52,7 @@ pub mod read_in {
 }
 
 pub mod print {
-    use colored::{ColoredString, Colorize};
+    use colored::Colorize;
 
     pub fn debug_grid_2d<T: std::fmt::Debug>(field: Vec<Vec<T>>) {
         for y in 0..field.len() {
