@@ -73,8 +73,8 @@ pub mod print {
     }
 
     pub fn grid<T: std::fmt::Display>(field: &Vec<T>, size: &(usize, usize)) {
-        for y in 0..size.0 {
-            for x in 0..size.1 {
+        for y in 0..size.1 {
+            for x in 0..size.0 {
                 print!("{}", field[x + y * size.1]);
             }
             println!()
@@ -82,9 +82,9 @@ pub mod print {
     }
 
     pub fn grid_special<T: std::fmt::Display>(field: &Vec<T>, size: &(usize, usize), glow_if: fn(&T) -> bool) {
-        for y in 0..size.0 {
-            for x in 0..size.1 {
-                let print_val = if glow_if(&field[x + y * size.1]) {field[x + y * size.1].to_string().bright_white()} else { field[x + y * size.1].to_string().white() };
+        for y in 0..size.1 {
+            for x in 0..size.0 {
+                let print_val = if glow_if(&field[x + y * size.0]) {field[x + y * size.0].to_string().bright_white()} else { field[x + y * size.0].to_string().white() };
                 print!("{}", print_val);
             }
             println!()
