@@ -33,7 +33,7 @@ fn part2(grid: &Vec<usize>, size: &(usize, usize)) {
     for i in 0..1000 {
         let (new_grid, flashes_occurred) = step(&stepped_grid, size);
         stepped_grid = new_grid;
-        if flashes_occurred == size.0 * size.1 {
+        if flashes_occurred == size.1 * size.0 {
             synchronized_on = i+1;
             break
         }
@@ -53,8 +53,8 @@ fn step(grid: &Vec<usize>, size: &(usize, usize)) -> (Vec<usize>, usize) {
     let mut has_updated = true;
     while has_updated {
         has_updated = false;
-        for y in 0..size.0 {
-            for x in 0..size.1 {
+        for y in 0..size.1 {
+            for x in 0..size.0 {
                 if increased[index(y, x, size)] <= 9 { continue; }
                 increased[index(y, x, size)] = 0;
                 has_updated = true;
@@ -77,8 +77,8 @@ fn get_neighbours(y: usize, x: usize, size: &(usize, usize)) -> Vec<usize> {
     for y_offset in -1..=1 {
         for x_offset in -1..=1 {
             let (new_y, new_x) = (y as i32 + y_offset, x as i32 + x_offset);
-            if new_y >= 0 && new_y < size.0 as i32 && new_x >= 0 && new_x < size.1 as i32 {
-                neighbours.push(new_y as usize * size.1 + new_x as usize);
+            if new_y >= 0 && new_y < size.1 as i32 && new_x >= 0 && new_x < size.0 as i32 {
+                neighbours.push(new_y as usize * size.0 + new_x as usize);
             }
         }
     }
@@ -86,5 +86,5 @@ fn get_neighbours(y: usize, x: usize, size: &(usize, usize)) -> Vec<usize> {
 }
 
 fn index(y: usize, x: usize, size: &(usize, usize)) -> usize {
-    x + y * size.1
+    x + y * size.0
 }

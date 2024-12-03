@@ -33,12 +33,12 @@ pub mod read_in {
      * Parses the input to a 1D grid, the sizes of the grid are returned as well.
      * The grid values are parsed to usize.<br>
      * @<b>returns</b> (grid, size)
-     * - <b>size</b>: (usize, usize) with (y, x)
+     * - <b>size</b>: (usize, usize) with (x, y)
      * - <b>grid</b>: Vec\<usize\> with grid\[x + y * size.0]
      */
     pub fn parse_grid(file_path: &str) -> (Vec<usize>, (usize, usize)) {
         let lines = lines(file_path);
-        let size = (lines.len(), lines[0].len());
+        let size = (lines[0].len(), lines.len());
         let mut grid = Vec::with_capacity(size.0 * size.1);
 
         for line in lines {
