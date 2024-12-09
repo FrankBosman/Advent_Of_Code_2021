@@ -1,0 +1,94 @@
+<svg fill="none" viewBox="0 0 800 400" width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <div style="display: flex; justify-content: center">
+                <div class="gold-star">
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <span></span>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <span></span>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <div>✯</div>
+                    <span></span>
+                </div>
+                <div class="empty-star">
+                    ✯✯✯✯✯ ✯✯✯✯✯
+                </div>
+            </div>
+            <style>
+                .gold-star, .empty-star {
+                display: flex;
+                flex-direction: row;
+                font-size: 1.35rem;
+                }
+                .gold-star div{
+                color: #fad43f;
+                text-shadow: 0 0 5px #ffff66;
+
+                animation-fill-mode: both;
+                animation: fade-in ease-in 1s 1 normal;
+                }
+                .gold-star span {
+                width: 0.4rem;
+                }
+                .empty-star {
+                color: gray;
+                }
+
+                @keyframes fade-in {
+                0% {
+                color: gray;
+                text-shadow: 0 0 0 #ffffff;
+                }
+                65% {
+                color: gray;
+                text-shadow: 0 0 0 #ffffff;
+                }
+                100% {
+                color: #fad43f;
+                text-shadow: 0 0 5px #ffff66;
+                }
+                }
+
+
+                .gold-star div:nth-child(1) { animation-duration: 0s }
+                .gold-star div:nth-child(2) { animation-duration: 0.25s }
+                .gold-star div:nth-child(3) { animation-duration: 0.5s }
+                .gold-star div:nth-child(4) { animation-duration: 0.75s }
+                .gold-star div:nth-child(5) { animation-duration: 1s }
+                .gold-star div:nth-child(6) { animation-duration: 1.25s }
+                .gold-star div:nth-child(7) { animation-duration: 1.5s }
+                .gold-star div:nth-child(8) { animation-duration: 1.75s }
+                .gold-star div:nth-child(9) { animation-duration: 2s }
+                .gold-star div:nth-child(10) { animation-duration: 2.25s }
+                .gold-star div:nth-child(11) { animation-duration: 2.5s }
+                .gold-star div:nth-child(12) { animation-duration: 2.75s }
+                .gold-star div:nth-child(13) { animation-duration: 3s }
+                .gold-star div:nth-child(14) { animation-duration: 3.25s }
+                .gold-star div:nth-child(15) { animation-duration: 3.5s }
+                .gold-star div:nth-child(16) { animation-duration: 3.75s }
+                .gold-star div:nth-child(17) { animation-duration: 4s }
+                .gold-star div:nth-child(18) { animation-duration: 4.25s }
+                .gold-star div:nth-child(19) { animation-duration: 4.5s }
+                .gold-star div:nth-child(20) { animation-duration: 4.75s }
+                .gold-star div:nth-child(21) { animation-duration: 5s }
+                .gold-star div:nth-child(22) { animation-duration: 5.25s }
+                .gold-star div:nth-child(23) { animation-duration: 5.5s }
+                .gold-star div:nth-child(24) { animation-duration: 5.75s }
+                .gold-star div:nth-child(25) { animation-duration: 6s }
+
+            </style>
+        </div>
+    </foreignObject>
+    <style xmlns="" type="text/css" id="custom-css-injector"/></svg>
